@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Inherit payment provider form view to add Up2pay specific fields -->
+    <!-- Hériter la vue formulaire du provider de paiement pour ajouter les champs spécifiques Up2pay -->
     <record id="payment_provider_form_up2pay" model="ir.ui.view">
         <field name="name">payment.provider.form.up2pay</field>
         <field name="model">payment.provider</field>
         <field name="inherit_id" ref="payment.payment_provider_form"/>
         <field name="arch" type="xml">
-            <!-- Add Up2pay configuration fields in the Configuration tab -->
+            <!-- Ajouter les champs de configuration Up2pay dans l'onglet Configuration -->
             <xpath expr="//page[@name='configuration']" position="inside">
-                <group string="Up2pay Configuration" name="up2pay_configuration" 
+                <group string="Configuration Up2pay E-Transactions" name="up2pay_configuration" 
                        attrs="{'invisible': [('code', '!=', 'up2pay')]}">
-                    <group>
-                        <field name="pbx_site" placeholder="e.g. 12345678"/>
-                        <field name="pbx_rang" placeholder="e.g. 1"/>
-                        <field name="pbx_identifiant" placeholder="e.g. MERCHANT_ID"/>
-                        <field name="pbx_hmac_key" placeholder="Enter HMAC key in hexadecimal format" password="True"/>
+                    <group string="Identifiants Marchand">
+                        <field name="pbx_site" placeholder="ex: 12345678"/>
+                        <field name="pbx_rang" placeholder="ex: 1"/>
+                        <field name="pbx_identifiant" placeholder="ex: MERCHANT_ID"/>
+                        <field name="pbx_hmac_key" placeholder="Entrez la clé HMAC au format hexadécimal" password="True"/>
+                    </group>
+                    <group string="Mode et URLs">
+                        <field name="test_mode"/>
+                        <field name="production_url" attrs="{'invisible': [('test_mode', '=', True)]}" 
+                               placeholder="https://tpeweb.e-transactions.fr/php/"/>
+                    </group>
+                    <group string="Pages de Retour (optionnel)">
+                        <field name="pbx_effectue" placeholder="/payment/process"/>
+                        <field name="pbx_refuse" placeholder="/payment/process"/>
+                        <field name="pbx_annule" placeholder="/payment/process"/>
                     </group>
                 </group>
             </xpath>
