@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Create Up2pay payment provider record -->
+        <record id="payment_provider_up2pay" model="payment.provider">
+            <field name="name">Up2pay</field>
+            <field name="code">up2pay</field>
+            <field name="module_id" ref="base.module_payment_up2pay"/>
+            <field name="state">test</field>
+            <field name="support_refund">partial</field>
+            <field name="capture_method">manual</field>
+            <field name="available_currency_ids" eval="[(6, 0, [ref('base.EUR'), ref('base.USD'), ref('base.GBP')])]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit payment provider form view to add Up2pay specific fields -->
+    <record id="payment_provider_form_up2pay" model="ir.ui.view">
+        <field name="name">payment.provider.form.up2pay</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Up2pay configuration fields in the Configuration tab -->
+            <xpath expr="//page[@name='configuration']" position="inside">
+                <group string="Up2pay Configuration" name="up2pay_configuration" 
+                       attrs="{'invisible': [('code', '!=', 'up2pay')]}">
+                    <group>
+                        <field name="pbx_site" placeholder="e.g. 12345678"/>
+                        <field name="pbx_rang" placeholder="e.g. 1"/>
+                        <field name="pbx_identifiant" placeholder="e.g. MERCHANT_ID"/>
+                        <field name="pbx_hmac_key" placeholder="Enter HMAC key in hexadecimal format" password="True"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
