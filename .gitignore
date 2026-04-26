@@ -1,0 +1,42 @@
+```
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Odoo specific
+*.pot
+*.po
+*i18n*
+*static/css*
+*static/js*
+*static/lib*
+
+# Dependencies
+.venv/
+venv/
+env/
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+htmlcov/
+coverage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+```
