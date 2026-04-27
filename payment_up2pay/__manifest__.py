@@ -1,3 +1,4 @@
++++ payment_up2pay/__manifest__.py (修改后)
 # -*- coding: utf-8 -*-
 {
     'name': 'Up2pay E-Transactions Payment',
