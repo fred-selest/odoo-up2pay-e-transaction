@@ -1,3 +1,4 @@
++++ payment_up2pay/data/payment_provider_data.xml (修改后)
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
@@ -7,8 +8,6 @@
             <field name="code">up2pay</field>
             <field name="module_id" ref="base.module_payment_up2pay"/>
             <field name="state">test</field>
-            <field name="support_refund">partial</field>
-            <field name="capture_method">manual</field>
             <field name="test_mode" eval="True"/>
             <field name="available_currency_ids" eval="[(6, 0, [ref('base.EUR'), ref('base.USD'), ref('base.GBP'), ref('base.CHF'), ref('base.CAD')])]"/>
         </record>
